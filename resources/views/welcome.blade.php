@@ -193,13 +193,13 @@ crossorigin=""></script>
         <h3 class="text-center  text-white mb-4"><b>HUBUNGI KAMI</b></h3>
         <div class="col-md-4 text-center mb-2">
             <img class="m-1" src="img/logoMBL.png" alt="" style="width:20%">
-            <p class="text-white m-1"><b>PT. Mandiri Baja Lestari</b></p>
-            <p class="text-white m-0">Jl. Margomulyo Indah C27 Surabaya, East Java - Indonesia</p>
+            <p class="text-white m-1"><b>{{config('app.ptname')}}</b></p>
+            <p class="text-white m-0">{{config('app.ptadress')}}</p>
         </div>
         <div class="col-md-4 text-center mb-2">
-            <p class="m-2 text-white"><i class="bi bi-telephone"></i> Telephone : 0121239231</p>
-            <p class="m-2 text-white"><i class="bi bi-whatsapp"></i> Whatsapp : 0121239231</p>
-            <p class="m-2 text-white"><i class="bi bi-envelope-at"></i> Email : Ini.Budi92@mandiribajalestari.com</p>
+            <p class="m-2 text-white"><i class="bi bi-telephone"></i> Telephone : {{config('app.pttel')}}</p>
+            <p class="m-2 text-white"><i class="bi bi-whatsapp"></i> Whatsapp : {{config('app.ptwa')}}</p>
+            <p class="m-2 text-white"><i class="bi bi-envelope-at"></i> Email : {{config('app.ptmail')}}</p>
             <button type="button" class="btn btn-info m-2" onclick="openGmaps()">Google Maps</button>
         </div>
         <div class="col-md-4 text-center mb-2">
@@ -273,7 +273,10 @@ crossorigin=""></script>
             document.querySelector("#itemName").innerHTML = itemName
 
             fetch(`/desc/${ref}`)
-            .then((response) => response.json())
+            .then((response) => {
+                console.log(response)
+                return response.json()
+            })
             .then((data) => {
                 document.querySelector("#descItem").innerHTML = data.content
             });

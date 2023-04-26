@@ -16,6 +16,11 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'ptname' => env('PT_NAME', 'Laravel'),
+    'ptmail' => env('PT_EMAIL', 'Laravel@gmail.com'),
+    'ptwa' => env('PT_WA', '0000'),
+    'pttel' => env('PT_TEL', '0000'),
+    'ptadress' => env('PT_ADRESS', 'jjl'),
 
     /*
     |--------------------------------------------------------------------------

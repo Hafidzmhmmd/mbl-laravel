@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\ContentController;
+use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ContentController::class, 'mainIndex']);
+Route::get('/', [WebsiteController::class, 'index']);
+Route::get('/desc/{ref}', [WebsiteController::class, 'desc'])->name('content.desc');
 
 
-
-
-
-//fetch route
-Route::get('/desc/{ref}', [ContentController::class, 'desc'])->name('content.desc');
+Route::group(['middleware' => 'auth'],function() {
+    Route::group(['prefix' => 'admin'], function () {
+        Route::get('/', [AdminController::class, 'index']);
+    });
+});
+Route::get('/login', [AdminController::class, 'login']);

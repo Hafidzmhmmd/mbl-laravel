@@ -16,7 +16,7 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           <img src="img/logoMBL.png" alt=""  height="24" class="d-inline-block align-text-top">
-          &nbsp;<span class="text-white">PT. Mandiri Baja Lestari</span>
+          &nbsp;<span class="text-white">{{config('app.ptname')}}</span>
         </a>
       </div>
     </nav>
